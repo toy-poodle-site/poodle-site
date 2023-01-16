@@ -25,6 +25,10 @@
 
 <br />
 
+## Run Locally
+
+`npx netlify-cms-proxy-server`
+
 ## Features
 
 - ⚡️ Gatsby 5

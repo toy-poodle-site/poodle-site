@@ -2,22 +2,70 @@ backend:
   name: git-gateway
   branch: main # Branch to update (optional; defaults to master)
 
+local_backend: true
+
 media_folder: static/img
 public_folder: /img
 
+# npx netlify-cms-proxy-server // Run local server
+
 collections:
-  - name: 'blog'
-    label: 'Blog'
-    folder: 'content/blog'
-    create: true
-    slug: 'index'
-    media_folder: ''
-    public_folder: ''
-    path: '{{title}}/index'
-    editor:
-      preview: false
-    fields:
-      - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+  - label: 'Pages'
+    name: 'pages'
+    files:
+      - label: 'Landing'
+        name: 'landing'
+        file: 'content/pages/index.md'
+        fields:
+          - label: 'Hero - The full screen image with tagline and main button'
+            name: hero
+            widget: object
+            fields:
+              - { label: Tagline, name: tagline, widget: string }
+              - { label: Description, name: description, widget: text }
+              - {
+                  label: 'Cover-Image - Full screen image',
+                  name: cover-image,
+                  widget: image,
+                }
+              - label: 'CTA (Call to Action) This is centered button on page'
+                name: cta
+                widget: object
+                fields:
+                  - { label: CTA-Text, name: cta-text, widget: string }
+                  - { label: CTA-Link, name: cta-link, widget: string }
+
+          - { label: Intro, name: intro, widget: markdown }
+
+  # Site Settings
+  - label: 'Site Settings'
+    name: site-settings
+    files:
+      - label: Settings
+        name: settings
+        file: 'static/site-settings.md'
+        fields:
+          - label: Settings-File
+            name: settings-file
+            widget: hidden
+            default: 'settings-file'
+
+          - label: 'Global Title'
+            name: global-title
+            widget: string
+          - label: Logo
+            name: logo
+            widget: image
+            media_library:
+              config:
+                multiple: false
+          - label: 'Dark Mode'
+            name: dark-mode
+            widget: boolean
+            required: false
+            default: false
+          - label: 'Accent Color'
+            name: accent-color
+            widget: color
+            enabledAlpha: true
+            allowInput: true

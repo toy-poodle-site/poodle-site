@@ -18,6 +18,21 @@ module.exports = {
         DEFAULT: '0 2px 4px var(--tw-shadow-color)',
         lg: '0 8px 16px var(--tw-shadow-color)',
       },
+      keyframes: {
+        'fade-in-down': {
+          '0%': {
+            opacity: '0',
+            transform: 'translateY(-40px)',
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateY(0)',
+          },
+        },
+      },
+      animation: {
+        'fade-in-down': 'fade-in-down 3s ease-out',
+      },
     },
   },
   plugins: [

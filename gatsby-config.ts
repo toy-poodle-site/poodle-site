@@ -7,6 +7,7 @@ const config: GatsbyConfig = {
   plugins: [
     'gatsby-plugin-postcss',
     'gatsby-plugin-netlify-cms',
+    'gatsby-plugin-smoothscroll',
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',

@@ -13,7 +13,7 @@ export default function Layout({ children, location }: LayoutProps) {
     <div className="antialiased min-h-screen flex flex-col">
       <Navbar location={location} />
       <div className="flex-1">{children}</div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

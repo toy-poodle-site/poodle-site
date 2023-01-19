@@ -1,5 +1,6 @@
+/* eslint-disable n/no-path-concat */
 import type { GatsbyConfig } from 'gatsby';
-import path from 'path';
+// import path from 'path';
 
 const config: GatsbyConfig = {
   // Since `gatsby-plugin-typescript` is automatically included in Gatsby you
@@ -16,21 +17,21 @@ const config: GatsbyConfig = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'content',
-        path: path.join(__dirname, 'content'),
+        path: `${__dirname}/content`,
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
-        path: path.join(__dirname, 'static/img'),
+        path: `${__dirname}/static/img`,
       },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'settings',
-        path: path.join(__dirname, 'static/site-settings.md'),
+        path: `${__dirname}/static/site-settings.md`,
       },
     },
   ],

@@ -10,7 +10,10 @@ type LayoutProps = {
 export default function Layout({ children, location }: LayoutProps) {
   console.log(location);
   return (
-    <div className="antialiased flex flex-col relative min-h-screen" id="top">
+    <div
+      className="antialiased flex flex-col relative min-h-screen w-screen overflow-x-hidden"
+      id="top"
+    >
       <Navbar location={location} />
       <div className="flex-grow">{children}</div>
       <Footer />

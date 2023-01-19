@@ -11,7 +11,7 @@ export default function Layout({ children, location }: LayoutProps) {
   console.log(location);
   return (
     <div
-      className="antialiased flex flex-col relative min-h-screen w-screen overflow-x-hidden"
+      className="antialiased flex flex-col relative min-h-screen max-w-[100vw] overflow-x-hidden"
       id="top"
     >
       <Navbar location={location} />

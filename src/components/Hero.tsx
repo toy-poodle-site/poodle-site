@@ -31,7 +31,7 @@ export default function Hero({
     <div className="min-h-screen relative group">
       <BiChevronsDown
         onClick={() => scrollTo('#intro')}
-        className="text-5xl text-amber-100 absolute mx-auto inset-x-0 bottom-5 z-10 cursor-pointer animate-fade-in-down "
+        className="hidden md:block text-5xl text-amber-100 absolute mx-auto inset-x-0 bottom-5 z-10 cursor-pointer animate-fade-in-down "
       />
       <GatsbyImage image={image} alt="Hero Image" className="h-screen" />
       <div className="absolute inset-0 bg-black/30 flex items-center justify-center">

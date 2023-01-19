@@ -31,7 +31,7 @@ const config: GatsbyConfig = {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'settings',
-        path: `${__dirname}/static/site-settings.md`,
+        path: `${__dirname}/static`,
       },
     },
   ],

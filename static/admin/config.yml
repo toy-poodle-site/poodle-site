@@ -35,7 +35,52 @@ collections:
                   - { label: CTA-Text, name: cta-text, widget: string }
                   - { label: CTA-Link, name: cta-link, widget: string }
 
-          - { label: Intro, name: intro, widget: markdown }
+          # Intro Section
+          - label: 'Intro - Second section'
+            name: intro
+            widget: object
+            fields:
+              - { label: 'Intro Heading', name: intro-heading, widget: string }
+              - { label: 'Intro Body', name: intro-body, widget: markdown }
+              # Blurbs
+              # Blurb1
+              - {
+                  label: 'Blurb 1 Heading',
+                  name: blurb1-heading,
+                  widget: string,
+                }
+              - { label: 'Blurb 1 image', name: blurb1-image, widget: image }
+              - { label: 'Blurb 1 text', name: blurb1-text, widget: text }
+
+              # Blurb2
+              - {
+                  label: 'Blurb 2 Heading',
+                  name: blurb2-heading,
+                  widget: string,
+                }
+              - { label: 'Blurb 2 image', name: blurb2-image, widget: image }
+              - { label: 'Blurb 2 text', name: blurb2-text, widget: text }
+
+              # Blurb3
+              - {
+                  label: 'Blurb 3 Heading',
+                  name: blurb3-heading,
+                  widget: string,
+                }
+              - { label: 'Blurb 3 image', name: blurb3-image, widget: image }
+              - { label: 'Blurb 3 text', name: blurb3-text, widget: text }
+
+          # Gallery
+          - label: 'Gallery'
+            name: gallery
+            widget: list
+            fields:
+              - { label: 'Gallery Image', name: 'gallery-image', widget: image }
+              - {
+                  label: 'Alt Text - (brief description of image)',
+                  name: 'gallery-image-alt-text',
+                  widget: string,
+                }
 
   # Site Settings
   - label: 'Site Settings'

@@ -5,6 +5,7 @@ import Blurb from '@/components/Blurb';
 import { GiDogBowl, GiDogHouse, GiJumpingDog } from 'react-icons/gi';
 import BlurbsContainer from '@/components/BlurbsContainer';
 import Gallery from '@/components/Gallery';
+import PuppiesForSale from '@/components/PuppiesForSale';
 
 type IndexPageTemplateProps = {
   data: any;
@@ -12,15 +13,16 @@ type IndexPageTemplateProps = {
 
 export default function IndexPageTemplate({ data }: IndexPageTemplateProps) {
   const heroImage = getImage(data.allImageSharp.edges[0].node);
-  // const logo = getImage(data.allImageSharp.edges[0].node);
+  console.log(heroImage);
 
   return (
-    <>
+    <div className="h-full w-full">
       {heroImage && (
         <Hero
           title="Sim Sim Lovelies"
+          subtitle="Registered MDBA Breeder - 22084"
           tagline="Healthy, happy toy poodles for your loving care."
-          description="Please feel free to contact us with any questions or to schedule a visit to meet our poodles in person. We look forward to helping you find the perfect addition to your family."
+          description="We are dedicated to breeding healthy and happy Toy Poodles with excellent temperaments. Our goal is to produce high-quality puppies that are not only beautiful, but also well-suited for families and individuals as loving companions."
           image={heroImage}
           ctaLink="/"
           ctaText="See Our Puppies"
@@ -29,11 +31,10 @@ export default function IndexPageTemplate({ data }: IndexPageTemplateProps) {
         />
       )}
 
-      {/* Intro and blurbs */}
-      <section className="relative w-full min-h-screen">
-        {/* Background */}
+      {/* Intro Section */}
+      <section className="relative py-5" id="intro">
         <svg
-          className="w-full absolute z-0"
+          className="inset-0 absolute w-full -z-10"
           xmlns="http://www.w3.org/2000/svg"
           version="1.1"
           // xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -66,24 +67,40 @@ export default function IndexPageTemplate({ data }: IndexPageTemplateProps) {
             </mask>
           </defs>
         </svg>
-
-        {/* Layer atop svg */}
-        <div className="absolute inset-0">
-          <div className="max-w-screen-xl mx-auto p-5 w-full" id="intro">
-            <Intro
-              heading="What are Toy Poodles?"
-              description="Toy Poodles are absolutely amazing! They are a small and highly intelligent breed that make the perfect companion for families and individuals alike. One of the best things about Toy Poodles is that they are incredibly trainable. They are eager to please and love learning new things, making them a breeze to train. They excel in obedience training, agility, and even therapy work."
+        <div className="relative">
+          <Intro
+            image={heroImage}
+            heading="Who are we?"
+            description="Here at SimSimLovelies, we are dedicated to raising happy, healthy toy poodles. We take great care in breeding and raising our dogs, ensuring that each one receives the love, attention, and veterinary care they need to thrive. Our puppies are reared in our home and are part of our family, extensively socialised to people, sounds, surfaces, smells, animals and evironments. All Puppies are Registered with MDBA with limited Pedigree (mains can be considered)."
+          />
+          <BlurbsContainer>
+            <Blurb
+              heading="What we do"
+              Image={GiDogHouse}
+              format="normal"
+              text="We are a registered MDBA Breeder located in Connewarre, Vic. Our breeding program focuses on producing toy poodles with excellent temperaments and conformation. We carefully select breeding pairs to produce puppies that are not only beautiful, but also well-suited for a variety of homes, including those with children and other pets."
             />
-            <BlurbsContainer />
-          </div>
-          {/* Gallery */}
+            <Blurb
+              heading="How we do it"
+              Image={GiDogBowl}
+              format="normal"
+              text="We have been breeding Toy Poodles for many years and have a deep understanding of the breed. Our breeding stock is carefully selected and health tested to ensure that we are producing the healthiest puppies possible. We also take great care in socializing our puppies from a young age to ensure that they are well-adjusted and confident."
+            />
+            <Blurb
+              heading="Why we do it"
+              Image={GiJumpingDog}
+              format="normal"
+              text="We have a deep love and appreciation for the toy poodle breed and want to share that love with others. We take pride in raising happy, healthy toy poodles that will bring joy and companionship to families. Overall, we believe that breeding toy poodles is a rewarding experience that allows us to make a positive impact in the lives of both the dogs and their new families. We do it because we are passionate about the breed and want to share that passion with others."
+            />
+          </BlurbsContainer>
+          <PuppiesForSale />
           <Gallery
-            heading="Our Toy Poodles"
-            subHeading="We have a variety of colors and sizes available. Click on a photo to learn more about each of our poodles."
+            heading="Some of our Previous Litters"
+            subHeading="Click on a photo to learn more about each of our poodles."
             photos={['hi']}
           />
         </div>
       </section>
-    </>
+    </div>
   );
 }

@@ -1,6 +1,8 @@
+import { NAV_LINKS } from '@/constants';
 import { ThemeContext } from '@/providers/ThemeProvider';
 import { Link } from 'gatsby';
 import { useEffect, useState, useContext, useRef } from 'react';
+import NavLink from './NavLink';
 
 export default function Navbar({ location }: any) {
   const [show, setShow] = useState(true);
@@ -50,28 +52,6 @@ export default function Navbar({ location }: any) {
     };
   }, [isMenuOpen]);
 
-  const navLinks = [
-    {
-      name: 'Home',
-      href: '/',
-    },
-    {
-      name: 'About',
-      href: '/about',
-    },
-    {
-      name: 'Puppies',
-      href: '/puppies',
-    },
-    {
-      name: 'Payments',
-      href: '/payments',
-    },
-    {
-      name: 'Contact',
-      href: '/contact',
-    },
-  ];
   return (
     <>
       {/* Force margin */}
@@ -79,25 +59,20 @@ export default function Navbar({ location }: any) {
       <div
         className={`transition-all duration-300 ${
           show ? 'translate-y-0 ' : '-translate-y-full'
-        } fixed top-0 h-16 inset-x-0 z-40 bg-black/25 shadow-sm backdrop-blur-sm`}
+        } fixed top-0 h-16 inset-x-0 z-40 bg-zinc-900/50 shadow-sm backdrop-blur-sm`}
       >
         <div className="w-full h-full max-w-screen-xl mx-auto flex items-center justify-between px-5">
           <h1 className="font-black font-merriweather text-xl text-white text-shadow-lg">
             Sim Sim Lovelies
           </h1>
           <div className="hidden md:flex items-center h-full">
-            {navLinks.map((link) => (
-              <Link to={link.href} key={link.name}>
-                <button
-                  className={`${
-                    location.pathname === link.href
-                      ? `border-b-2 border-b-amber-400 text-amber-400`
-                      : 'border-b-transparent'
-                  } uppercase font-montserrat h-16 px-3 w-full flex-grow border-b-2  hover:border-b-amber-400 text-white hover:text-amber-400 transition`}
-                >
-                  {link.name}
-                </button>
-              </Link>
+            {NAV_LINKS.map((link) => (
+              <NavLink
+                key={link.name}
+                name={link.name}
+                to={link.href}
+                currentPathname={location.pathname}
+              />
             ))}
           </div>
           <div className="md:hidden text-zinc-100">
@@ -126,7 +101,7 @@ export default function Navbar({ location }: any) {
         ref={menuOpenRef}
         className={`transition-all duration-300 ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
-        } md:hidden fixed right-0 inset-y-0 w-2/3 z-50 bg-zinc-800 px-5 flex flex-col drop-shadow-xl`}
+        } md:hidden overflow-y-auto fixed right-0 inset-y-0 w-2/3 z-50 bg-zinc-800 px-5 flex flex-col drop-shadow-xl`}
       >
         <button
           onClick={() => setIsMenuOpen(false)}
@@ -147,6 +122,39 @@ export default function Navbar({ location }: any) {
             />
           </svg>
         </button>
+        <div className="px-5 pb-10 h-full flex flex-col space-y-10 justify-between">
+          <div className="flex flex-col w-max cursor-pointer text-zinc-300 hover:contrast-75 ">
+            <h2 className="font-merriweather font-black text-xl md:text-3xl text-shadow shadow-black/10 bg-clip-text text-transparent bg-gradient-to-r from-amber-600 via-pink-600 to-purple-600">
+              SimSimLovelies
+            </h2>
+            <h3 className="text-amber-400  pt-1 md:pt-3 text-sm">By Sima</h3>
+          </div>
+
+          <div className="flex flex-col h-full justify-end">
+            {/* {NAV_LINKS.map((link) => (
+              <Link to={link.href} key={link.name}>
+                <button
+                  className={`${
+                    location.pathname === link.href
+                      ? `border-l-2 border-l-amber-400 text-amber-400`
+                      : 'border-l-transparent'
+                  } uppercase font-montserrat px-3 py-2 w-full text-left flex-grow border-l-2  hover:border-l-amber-400 text-white hover:text-amber-400 transition`}
+                >
+                  {link.name}
+                </button>
+              </Link>
+            ))} */}
+            {NAV_LINKS.map((link) => (
+              <NavLink
+                key={link.name}
+                name={link.name}
+                to={link.href}
+                currentPathname={location.pathname}
+                mobile
+              />
+            ))}
+          </div>
+        </div>
       </div>
 
       {/* Backdrop blur when menu open */}

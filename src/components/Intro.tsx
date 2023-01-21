@@ -1,3 +1,4 @@
+import { Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import Divider from './Divider';
 
@@ -13,14 +14,14 @@ export default function Intro({
   image = null,
 }: IntroProps) {
   return (
-    <div className="max-w-screen-lg mx-auto flex flex-col items-center space-y-5 my-5 px-5">
+    <div className="max-w-screen-lg mx-auto flex flex-col items-center space-y-5 mt-5 px-5">
       <h1 className="text-2xl md:text-3xl text-merriweather xl:text-4xl text-center font-light text-shadow shadow-black/10 text-zinc-600">
         {heading}
       </h1>
       <Divider />
 
       {image ? (
-        <div className="md:flex  md:space-x-5 w-full py-5">
+        <div className="md:flex items-center md:space-x-5 w-full py-5">
           <div className="w-full h-full flex-1 overflow-hidden">
             <GatsbyImage
               alt="hero"
@@ -35,7 +36,12 @@ export default function Intro({
                 SimSimLovelies
               </span>
             </h2>
-            <p className="font-montserrat text-zinc-500 mt-5">{description}</p>
+            <p className="font-montserrat text-zinc-500 my-5">{description}</p>
+            <Link to="/about">
+              <button className="transition-all font-montserrat px-5 py-2 border-2 border-sky-800 rounded-md hover:shadow-xl shadow text-gray-100 bg-sky-800 text-sm font-normal hover:bg-sky-900 hover:border-sky-900">
+                Learn More
+              </button>
+            </Link>
           </div>
         </div>
       ) : (

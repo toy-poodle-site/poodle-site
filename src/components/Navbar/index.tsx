@@ -2,6 +2,7 @@ import { NAV_LINKS } from '@/constants';
 import { ThemeContext } from '@/providers/ThemeProvider';
 import { Link } from 'gatsby';
 import { useEffect, useState, useContext, useRef } from 'react';
+import Logo from '../Logo';
 import NavLink from './NavLink';
 
 export default function Navbar({ location }: any) {
@@ -62,9 +63,15 @@ export default function Navbar({ location }: any) {
         } fixed top-0 h-16 inset-x-0 z-40 bg-zinc-900/50 shadow-sm backdrop-blur-sm`}
       >
         <div className="w-full h-full max-w-screen-xl mx-auto flex items-center justify-between px-5">
-          <h1 className="font-black font-merriweather text-xl text-white text-shadow-lg">
-            Sim Sim Lovelies
-          </h1>
+          <Link
+            to="/"
+            className="hover:contrast-125 cursor-pointer transition-all"
+          >
+            <h1 className=" flex items-center font-black font-merriweather text-lg text-zinc-200 text-shadow-lg">
+              <Logo className="h-8 w-8 mr-3" color="amber" />
+              Sim Sim Lovelies
+            </h1>
+          </Link>
           <div className="hidden md:flex items-center h-full">
             {NAV_LINKS.map((link) => (
               <NavLink

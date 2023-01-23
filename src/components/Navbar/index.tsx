@@ -130,27 +130,16 @@ export default function Navbar({ location }: any) {
           </svg>
         </button>
         <div className="px-5 pb-10 h-full flex flex-col space-y-10 justify-between">
-          <div className="flex flex-col w-max cursor-pointer text-zinc-300 hover:contrast-75 ">
-            <h2 className="font-merriweather font-black text-xl md:text-3xl text-shadow shadow-black/10 bg-clip-text text-transparent bg-gradient-to-r from-amber-600 via-pink-600 to-purple-600">
-              SimSimLovelies
-            </h2>
-            <h3 className="text-amber-400  pt-1 md:pt-3 text-sm">By Sima</h3>
-          </div>
+          <Link to="/" onClick={() => setIsMenuOpen(false)}>
+            <div className="flex flex-col w-max cursor-pointer text-zinc-300 hover:contrast-75 ">
+              <h2 className="font-merriweather font-black text-xl md:text-3xl text-shadow shadow-black/10 bg-clip-text text-transparent bg-gradient-to-r from-amber-600 via-pink-600 to-purple-600">
+                SimSimLovelies
+              </h2>
+              <h3 className="text-amber-400  pt-1 md:pt-3 text-sm">By Sima</h3>
+            </div>
+          </Link>
 
           <div className="flex flex-col h-full justify-end">
-            {/* {NAV_LINKS.map((link) => (
-              <Link to={link.href} key={link.name}>
-                <button
-                  className={`${
-                    location.pathname === link.href
-                      ? `border-l-2 border-l-amber-400 text-amber-400`
-                      : 'border-l-transparent'
-                  } uppercase font-montserrat px-3 py-2 w-full text-left flex-grow border-l-2  hover:border-l-amber-400 text-white hover:text-amber-400 transition`}
-                >
-                  {link.name}
-                </button>
-              </Link>
-            ))} */}
             {NAV_LINKS.map((link) => (
               <NavLink
                 key={link.name}

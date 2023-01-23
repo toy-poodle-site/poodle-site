@@ -54,7 +54,7 @@ export default function Hero({
             <div className="flex space-x-3">
               <button
                 onClick={() => scrollTo('#gallery')}
-                className="transition-all font-montserrat px-5 py-2 border-2 border-amber-400 rounded-md hover:shadow-xl shadow text-gray-700 bg-amber-400 text-sm md:text-lg font-semibold hover:bg-amber-300 hover:border-amber-300"
+                className="transition-all font-montserrat px-5 py-2 border-2 border-amber-400 rounded-md hover:shadow-xl shadow text-gray-700 bg-amber-400 text-sm md:text-lg font-semibold hover:contrast-125 "
               >
                 {ctaText}
               </button>

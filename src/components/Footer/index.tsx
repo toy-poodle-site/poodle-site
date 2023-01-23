@@ -22,7 +22,7 @@ export default function Footer() {
             </p>
           </div>
           <div className="py-5 flex flex-col md:flex-row md:items-center justify-between space-y-5 md:space-y-0 md:space-x-5">
-            <div className="flex flex-wrap items-center h-full">
+            <div className="flex flex-wrap space-x-3 items-center h-full">
               {NAV_LINKS.map((link) => (
                 <NavLink
                   key={link.name}

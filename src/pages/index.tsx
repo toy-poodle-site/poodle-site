@@ -1,26 +1,18 @@
-import { useContext, useLayoutEffect } from 'react';
 import IndexPageTemplate from '@/templates/index-page';
 import Layout from '@/components/Layout';
 import { graphql, HeadFC } from 'gatsby';
 
-import { ThemeContext } from '@/providers/ThemeProvider';
 import SEO from '@/components/SEO';
+import { TIndexQueryResult } from '@/types/';
 
-export default function Home({ data, location }: any) {
-  // const frontmatter = data.allMarkdownRemark.edges[0].node.frontmatter;
-  // const { updateAccentColor, updateLogo } = useContext(ThemeContext);
-
-  // useLayoutEffect(() => {
-  //   updateAccentColor(frontmatter.accent_color);
-  //   updateLogo(frontmatter.logo);
-  //   console.log('i ran');
-  // }, [
-  //   frontmatter.accent_color,
-  //   frontmatter.logo,
-  //   updateAccentColor,
-  //   updateLogo,
-  // ]);
-
+export default function Home({
+  data,
+  location,
+}: {
+  data: TIndexQueryResult;
+  location: Location;
+}) {
+  console.log(data);
   return (
     <Layout location={location}>
       <IndexPageTemplate data={data} />
@@ -32,58 +24,69 @@ export const Head: HeadFC = ({ location }) => (
   <SEO pathname={location.pathname} />
 );
 
-export const query = graphql`
-  query MyQuery {
-    allImageSharp(filter: { fixed: { originalName: { eq: "dog-bg.jpg" } } }) {
-      edges {
-        node {
-          gatsbyImageData(layout: FULL_WIDTH, quality: 100)
+export const pageQuery = graphql`
+  query IndexPageQuery {
+    markdownRemark(frontmatter: { template_key: { eq: "index_page" } }) {
+      frontmatter {
+        hero {
+          coverImage {
+            childImageSharp {
+              gatsbyImageData(layout: FULL_WIDTH, quality: 100)
+            }
+          }
+          cta {
+            cta_link
+            cta_text
+          }
+          description
+          subtitle
+          tagline
+          title
+        }
+        intro {
+          blurb1_heading
+          blurb1_text
+          blurb2_heading
+          blurb3_heading
+          blurb3_text
+          blurb2_text
+          intro_body
+          intro_heading
+          intro_title
+          blurb1_image {
+            childImageSharp {
+              gatsbyImageData(layout: CONSTRAINED, quality: 100)
+            }
+          }
+          blurb2_image {
+            childImageSharp {
+              gatsbyImageData(layout: CONSTRAINED, quality: 100)
+            }
+          }
+          blurb3_image {
+            childImageSharp {
+              gatsbyImageData(layout: CONSTRAINED, quality: 100)
+            }
+          }
+          intro_image {
+            childImageSharp {
+              gatsbyImageData(layout: CONSTRAINED, quality: 100)
+            }
+          }
+        }
+        gallery {
+          gallery_subtitle
+          gallery_title
+          gallery_photos {
+            gallery_image_alt_text
+            gallery_image {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
         }
       }
     }
   }
 `;
-
-// export const pageQuery = graphql`
-//   query MyQuery {
-//     markdownRemark(frontmatter: { template_key: { eq: "index_page" } }) {
-//       frontmatter {
-//         template_key
-//         hero {
-//           title
-//           subtitle
-//           tagline
-//           description
-//           cover_image
-//           cta {
-//             cta_text
-//             cta_link
-//           }
-//         }
-//         intro {
-//           intro_title
-//           intro_image
-//           intro_heading
-//           blurb1_image
-//           blurb2_image
-//           blurb3_image
-//           blurb3_text
-//           blurb2_text
-//           intro_body
-//           blurb1_text
-//           blurb1_heading
-//           blurb2_heading
-//           blurb3_heading
-//         }
-//         gallery {
-//           gallery_title
-//           gallery_subtitle
-//           gallery_photos {
-//             gallery_image_alt_text
-//             gallery_image
-//           }
-//         }
-//       }
-//     }
-//   }
-// `;

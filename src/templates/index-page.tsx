@@ -1,4 +1,4 @@
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { getImage } from 'gatsby-plugin-image';
 import Hero from '@/components/Hero';
 import Intro from '@/components/Intro';
 import Blurb from '@/components/Blurb';
@@ -6,33 +6,30 @@ import { GiDogBowl, GiDogHouse, GiJumpingDog } from 'react-icons/gi';
 import BlurbsContainer from '@/components/BlurbsContainer';
 import Gallery from '@/components/Gallery';
 import PuppiesForSale from '@/components/PuppiesForSale';
+import { TIndexQueryResult } from '@/types';
 
 type IndexPageTemplateProps = {
-  data: any;
+  data: TIndexQueryResult;
 };
 
 export default function IndexPageTemplate({ data }: IndexPageTemplateProps) {
-  const heroImage = getImage(data.allImageSharp.edges[0].node);
-  console.log(heroImage);
+  const { intro, gallery, hero } = data.markdownRemark.frontmatter;
 
   return (
     <div className="h-full w-full">
-      {heroImage && (
-        <Hero
-          title="Sim Sim Lovelies"
-          subtitle="Registered MDBA Breeder - 22084"
-          tagline="Healthy, happy toy poodles for your loving care."
-          description="We are dedicated to breeding healthy and happy Toy Poodles with excellent temperaments. Our goal is to produce high-quality puppies that are not only beautiful, but also well-suited for families and individuals as loving companions."
-          image={heroImage}
-          ctaLink="/"
-          ctaText="See Our Puppies"
-          ctaAltLink="/contact"
-          ctaAltText="Contact Us"
-        />
-      )}
-
+      <Hero
+        title={hero.title}
+        subtitle={hero.subtitle}
+        tagline={hero.tagline}
+        description={hero.description}
+        image={getImage(hero.coverImage)}
+        ctaLink="/"
+        ctaText="See Our Puppies"
+        ctaAltLink={hero.cta.cta_link}
+        ctaAltText={hero.cta.cta_text}
+      />
       {/* Intro Section */}
-      <section className="relative py-5" id="intro">
+      <section className="relative pt-5" id="intro">
         <svg
           className="inset-0 absolute w-full -z-10"
           xmlns="http://www.w3.org/2000/svg"
@@ -69,35 +66,39 @@ export default function IndexPageTemplate({ data }: IndexPageTemplateProps) {
         </svg>
         <div className="relative">
           <Intro
-            image={heroImage}
-            heading="Who are we?"
-            description="Here at SimSimLovelies, we are dedicated to raising happy, healthy toy poodles. We take great care in breeding and raising our dogs, ensuring that each one receives the love, attention, and veterinary care they need to thrive. Our puppies are reared in our home and are part of our family, extensively socialised to people, sounds, surfaces, smells, animals and evironments. All Puppies are Registered with MDBA with limited Pedigree (mains can be considered)."
+            image={getImage(intro.intro_image)}
+            heading={intro.intro_heading}
+            title={intro.intro_title}
+            description={intro.intro_body}
           />
           <BlurbsContainer>
             <Blurb
-              heading="What we do"
-              Image={GiDogHouse}
+              heading={intro.blurb1_heading}
+              Icon={GiDogHouse}
+              image={getImage(intro.blurb1_image)}
               format="normal"
-              text="We are a registered MDBA Breeder located in Connewarre, Vic. Our breeding program focuses on producing toy poodles with excellent temperaments and conformation. We carefully select breeding pairs to produce puppies that are not only beautiful, but also well-suited for a variety of homes, including those with children and other pets."
+              text={intro.blurb1_text}
             />
             <Blurb
-              heading="How we do it"
-              Image={GiDogBowl}
+              heading={intro.blurb2_heading}
+              Icon={GiDogBowl}
+              image={getImage(intro.blurb2_image)}
               format="normal"
-              text="We have been breeding Toy Poodles for many years and have a deep understanding of the breed. Our breeding stock is carefully selected and health tested to ensure that we are producing the healthiest puppies possible. We also take great care in socializing our puppies from a young age to ensure that they are well-adjusted and confident."
+              text={intro.blurb2_text}
             />
             <Blurb
-              heading="Why we do it"
-              Image={GiJumpingDog}
+              heading={intro.blurb3_heading}
+              Icon={GiJumpingDog}
+              image={getImage(intro.blurb3_image)}
               format="normal"
-              text="We have a deep love and appreciation for the toy poodle breed and want to share that love with others. We take pride in raising happy, healthy toy poodles that will bring joy and companionship to families. Overall, we believe that breeding toy poodles is a rewarding experience that allows us to make a positive impact in the lives of both the dogs and their new families. We do it because we are passionate about the breed and want to share that passion with others."
+              text={intro.blurb3_text}
             />
           </BlurbsContainer>
           <PuppiesForSale />
           <Gallery
-            heading="Some of our Previous Litters"
-            subHeading="Click on a photo to learn more about each of our poodles."
-            photos={['hi']}
+            title={gallery.gallery_title}
+            subtitle={gallery.gallery_subtitle}
+            photos={gallery.gallery_photos}
           />
         </div>
       </section>

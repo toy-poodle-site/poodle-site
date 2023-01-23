@@ -4,19 +4,21 @@ import Divider from './Divider';
 
 type IntroProps = {
   heading: string;
+  title: string;
   description: string;
   image?: any;
 };
 
 export default function Intro({
   heading,
+  title,
   description,
   image = null,
 }: IntroProps) {
   return (
     <div className="max-w-screen-lg mx-auto flex flex-col items-center space-y-5 mt-5 px-5">
       <h1 className="text-2xl md:text-3xl text-merriweather xl:text-4xl text-center font-light text-shadow shadow-black/10 text-zinc-600">
-        {heading}
+        {title}
       </h1>
       <Divider />
 
@@ -30,10 +32,9 @@ export default function Intro({
             />
           </div>
           <div className="py-5 md:w-1/2 h-full">
-            <h2 className="font-merriweather font-light text-2xl mb-5 text-zinc-600">
-              We are{' '}
+            <h2 className="font-merriweather font-light text-lg mb-5 text-zinc-600">
               <span className="font-black text-shadow shadow-black/10 bg-clip-text text-transparent bg-gradient-to-r from-amber-600 via-pink-600 to-purple-600">
-                SimSimLovelies
+                {heading}
               </span>
             </h2>
             <p className="font-montserrat text-zinc-500 my-5">{description}</p>

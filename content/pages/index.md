@@ -13,9 +13,9 @@ hero:
     cta_text: Contact Us
     cta_link: /contact/
 intro:
-  intro_title: Registered Toy Poodle Breeder Since 2012
+  intro_heading: Registered Toy Poodle Breeder Since 2012
   intro_image: /img/max-harlynking-tkykgjjlqvc-unsplash.jpg
-  intro_heading: Who are we?
+  intro_title: Who are we?
   blurb1_image: /img/single.png
   blurb2_image: /img/heart-outline.png
   blurb3_image: /img/heart-fill.png
@@ -58,5 +58,4 @@ gallery:
       gallery_image_alt_text: Another poodle
     - gallery_image: /img/max-harlynking-hve6qkhzl1y-unsplash.jpg
       gallery_image_alt_text: potrait photo
-  gallery-title: Some of our previous litters
 ---

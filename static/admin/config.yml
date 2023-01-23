@@ -86,7 +86,7 @@ collections:
             name: 'gallery'
             widget: object
             fields:
-              - { label: 'Gallery Title', name: gallery-title, widget: string }
+              - { label: 'Gallery Title', name: gallery_title, widget: string }
               - {
                   label: 'Gallery Subtitle',
                   name: gallery_subtitle,

@@ -2,7 +2,7 @@ import { Link } from 'gatsby';
 import { BiChevronsDown } from 'react-icons/bi';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import scrollTo from 'gatsby-plugin-smoothscroll';
-import Divider from './Divider';
+import Divider from '../Divider';
 
 type HeroProps = {
   title: string;
@@ -48,13 +48,13 @@ export default function Hero({
             </h2>
             {/* <hr className="w-16 h-[2px] rounded  bg-amber-400 border-0" /> */}
             <Divider />
-            <h3 className="text-sm text-shadow shadow-black/25 font-montserrat md:text-lg text-gray-200">
+            <h3 className="text-sm text-shadow shadow-black/25 font-montserrat md:text-lg text-gray-200 prose prose-xl">
               {description}
             </h3>
             <div className="flex space-x-3">
               <button
                 onClick={() => scrollTo('#gallery')}
-                className="transition-all font-montserrat px-5 py-2 border-2 border-amber-400 rounded-md hover:shadow-xl shadow text-gray-700 bg-amber-400 text-sm md:text-lg font-semibold hover:bg-amber-300 hover:border-amber-300"
+                className="transition-all font-montserrat px-5 py-2 border-2 border-amber-400 rounded-md hover:shadow-xl shadow text-gray-700 bg-amber-400 text-sm md:text-lg font-semibold hover:contrast-125 "
               >
                 {ctaText}
               </button>

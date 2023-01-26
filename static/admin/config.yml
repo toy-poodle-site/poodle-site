@@ -17,86 +17,142 @@ collections:
         name: 'landing'
         file: 'content/pages/index.md'
         fields:
+          - {
+              label: 'Template Key (Do not edit)',
+              name: template_key,
+              widget: string,
+              default: index_page,
+              required: false,
+              hint: 'LEAVE BLANK',
+            }
           - label: 'Hero - The full screen image with tagline and main button'
             name: hero
             widget: object
             fields:
+              - { label: Title, name: title, widget: string }
+              - { label: Subtitle, name: subtitle, widget: string }
               - { label: Tagline, name: tagline, widget: string }
               - { label: Description, name: description, widget: text }
               - {
                   label: 'Cover-Image - Full screen image',
-                  name: cover-image,
+                  name: coverImage,
                   widget: image,
                 }
               - label: 'CTA (Call to Action) This is centered button on page'
                 name: cta
                 widget: object
                 fields:
-                  - { label: CTA-Text, name: cta-text, widget: string }
-                  - { label: CTA-Link, name: cta-link, widget: string }
+                  - { label: CTA-Text, name: cta_text, widget: string }
+                  - { label: CTA-Link, name: cta_link, widget: string }
 
           # Intro Section
           - label: 'Intro - Second section'
             name: intro
             widget: object
             fields:
-              - { label: 'Intro Heading', name: intro-heading, widget: string }
-              - { label: 'Intro Body', name: intro-body, widget: markdown }
+              - { label: 'Intro Title', name: intro_title, widget: string }
+              - { label: 'Intro Heading', name: intro_heading, widget: string }
+              - { label: 'Intro Body', name: intro_body, widget: markdown }
+              - { label: 'Intro Image', name: intro_image, widget: image }
               # Blurbs
               # Blurb1
               - {
                   label: 'Blurb 1 Heading',
-                  name: blurb1-heading,
+                  name: blurb1_heading,
                   widget: string,
                 }
-              - { label: 'Blurb 1 image', name: blurb1-image, widget: image }
-              - { label: 'Blurb 1 text', name: blurb1-text, widget: text }
+              - { label: 'Blurb 1 image', name: blurb1_image, widget: image }
+              - { label: 'Blurb 1 text', name: blurb1_text, widget: markdown }
 
               # Blurb2
               - {
                   label: 'Blurb 2 Heading',
-                  name: blurb2-heading,
+                  name: blurb2_heading,
                   widget: string,
                 }
-              - { label: 'Blurb 2 image', name: blurb2-image, widget: image }
-              - { label: 'Blurb 2 text', name: blurb2-text, widget: text }
+              - { label: 'Blurb 2 image', name: blurb2_image, widget: image }
+              - { label: 'Blurb 2 text', name: blurb2_text, widget: markdown }
 
               # Blurb3
               - {
                   label: 'Blurb 3 Heading',
-                  name: blurb3-heading,
+                  name: blurb3_heading,
                   widget: string,
                 }
-              - { label: 'Blurb 3 image', name: blurb3-image, widget: image }
-              - { label: 'Blurb 3 text', name: blurb3-text, widget: text }
+              - { label: 'Blurb 3 image', name: blurb3_image, widget: image }
+              - { label: 'Blurb 3 text', name: blurb3_text, widget: markdown }
 
-          # Gallery
-          - label: 'Gallery'
-            name: gallery
-            widget: list
+          # Our Family section
+          - label: 'Our Family'
+            name: our_family
+            widget: object
             fields:
-              - { label: 'Gallery Image', name: 'gallery-image', widget: image }
+              - label: 'Our Family section title'
+                name: our_family_title
+                widget: string
+              - label: 'Our Family section subtitle'
+                name: our_family_subtitle
+                widget: string
+              - label: 'Our Family section - photos'
+                name: our_family_photos
+                widget: list
+                fields:
+                  - {
+                      label: 'Dog Name',
+                      name: our_family_dog_name,
+                      widget: string,
+                    }
+                  - {
+                      label: 'Dog Image',
+                      name: our_family_dog_image,
+                      widget: image,
+                    }
+                  - {
+                      label: 'About Dog',
+                      name: our_family_about_dog,
+                      widget: markdown,
+                    }
+
+          - label: 'Gallery'
+            name: 'gallery'
+            widget: object
+            fields:
+              - { label: 'Gallery Title', name: gallery_title, widget: string }
               - {
-                  label: 'Alt Text - (brief description of image)',
-                  name: 'gallery-image-alt-text',
+                  label: 'Gallery Subtitle',
+                  name: gallery_subtitle,
                   widget: string,
                 }
+              - label: 'Gallery Photos'
+                name: gallery_photos
+                widget: list
+                fields:
+                  - {
+                      label: 'Gallery Image',
+                      name: 'gallery_image',
+                      widget: image,
+                    }
+                  - {
+                      label: 'Alt Text - (brief description of image)',
+                      name: 'gallery_image_alt_text',
+                      widget: string,
+                    }
 
   # Site Settings
   - label: 'Site Settings'
-    name: site-settings
+    name: site_settings
     files:
       - label: Settings
         name: settings
         file: 'static/site-settings.md'
         fields:
-          - label: Settings-File
-            name: settings-file
+          - label: Settings_File
+            name: settings_file
             widget: hidden
-            default: 'settings-file'
+            default: 'settings_file'
 
           - label: 'Global Title'
-            name: global-title
+            name: global_title
             widget: string
           - label: Logo
             name: logo
@@ -105,12 +161,12 @@ collections:
               config:
                 multiple: false
           - label: 'Dark Mode'
-            name: dark-mode
+            name: dark_mode
             widget: boolean
             required: false
             default: false
           - label: 'Accent Color'
-            name: accent-color
+            name: accent_color
             widget: color
             enabledAlpha: true
             allowInput: true

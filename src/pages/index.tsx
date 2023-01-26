@@ -1,25 +1,18 @@
-import { useEffect, useContext, useState, useLayoutEffect } from 'react';
 import IndexPageTemplate from '@/templates/index-page';
 import Layout from '@/components/Layout';
-import { graphql } from 'gatsby';
+import { graphql, HeadFC } from 'gatsby';
 
-import { ThemeContext } from '@/providers/ThemeProvider';
+import SEO from '@/components/SEO';
+import { TIndexQueryResult } from '@/types/';
 
-export default function Home({ data, location }: any) {
-  const frontmatter = data.allMarkdownRemark.edges[0].node.frontmatter;
-  const { updateAccentColor, updateLogo } = useContext(ThemeContext);
-
-  useLayoutEffect(() => {
-    updateAccentColor(frontmatter.accent_color);
-    updateLogo(frontmatter.logo);
-    console.log('i ran');
-  }, [
-    frontmatter.accent_color,
-    frontmatter.logo,
-    updateAccentColor,
-    updateLogo,
-  ]);
-
+export default function Home({
+  data,
+  location,
+}: {
+  data: TIndexQueryResult;
+  location: Location;
+}) {
+  console.log(data);
   return (
     <Layout location={location}>
       <IndexPageTemplate data={data} />
@@ -27,22 +20,79 @@ export default function Home({ data, location }: any) {
   );
 }
 
-export const query = graphql`
-  query MyQuery {
-    allMarkdownRemark {
-      edges {
-        node {
-          frontmatter {
-            accent_color
-            logo
+export const Head: HeadFC = ({ location }) => (
+  <SEO pathname={location.pathname} />
+);
+
+export const pageQuery = graphql`
+  query IndexPageQuery {
+    markdownRemark(frontmatter: { template_key: { eq: "index_page" } }) {
+      frontmatter {
+        hero {
+          coverImage {
+            childImageSharp {
+              gatsbyImageData(layout: FULL_WIDTH, quality: 100)
+            }
+          }
+          cta {
+            cta_link
+            cta_text
+          }
+          description
+          subtitle
+          tagline
+          title
+        }
+        intro {
+          blurb1_heading
+          blurb1_text {
+            html
+          }
+          blurb2_heading
+          blurb3_heading
+          blurb3_text {
+            html
+          }
+          blurb2_text {
+            html
+          }
+          intro_body {
+            html
+          }
+          intro_heading
+          intro_title
+          blurb1_image {
+            childImageSharp {
+              gatsbyImageData(layout: CONSTRAINED, quality: 100)
+            }
+          }
+          blurb2_image {
+            childImageSharp {
+              gatsbyImageData(layout: CONSTRAINED, quality: 100)
+            }
+          }
+          blurb3_image {
+            childImageSharp {
+              gatsbyImageData(layout: CONSTRAINED, quality: 100)
+            }
+          }
+          intro_image {
+            childImageSharp {
+              gatsbyImageData(layout: CONSTRAINED, quality: 100)
+            }
           }
         }
-      }
-    }
-    allImageSharp(filter: { fixed: { originalName: { eq: "dog-bg.jpg" } } }) {
-      edges {
-        node {
-          gatsbyImageData(layout: FULL_WIDTH, quality: 100)
+        gallery {
+          gallery_subtitle
+          gallery_title
+          gallery_photos {
+            gallery_image_alt_text
+            gallery_image {
+              childImageSharp {
+                gatsbyImageData
+              }
+            }
+          }
         }
       }
     }

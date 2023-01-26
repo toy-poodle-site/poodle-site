@@ -3,3 +3,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .markdown {
+    @apply prose prose-a:text-amber-900 hover:prose-a:text-amber-700;
+  }
+
+  .btn-learn-more {
+    @apply transition-all font-montserrat px-5 py-2 border-2 border-sky-800 rounded-md hover:shadow-xl shadow text-gray-100 bg-sky-800 text-sm font-bold hover:bg-sky-900 hover:border-sky-900;
+  }
+
+  .btn-learn-more-amber {
+    @apply transition-all font-montserrat px-5 py-2 border-2 border-amber-400 rounded-md hover:shadow-xl shadow text-zinc-900 bg-amber-400 text-sm font-bold hover:bg-amber-500 hover:border-amber-500;
+  }
+}

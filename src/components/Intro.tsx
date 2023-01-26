@@ -1,26 +1,35 @@
+import { Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import Divider from './Divider';
 
 type IntroProps = {
   heading: string;
-  description: string;
+  title: string;
+  description: any;
   image?: any;
+  dark?: boolean;
 };
 
 export default function Intro({
   heading,
+  dark = false,
+  title,
   description,
   image = null,
 }: IntroProps) {
   return (
-    <div className="max-w-screen-lg mx-auto flex flex-col items-center space-y-5 my-5 px-5">
-      <h1 className="text-2xl md:text-3xl text-merriweather xl:text-4xl text-center font-light text-shadow shadow-black/10 text-zinc-600">
-        {heading}
+    <div className="max-w-screen-lg mx-auto flex flex-col items-center space-y-5 pt-5 px-5">
+      <h1
+        className={`text-2xl md:text-3xl font-merriweather xl:text-4xl text-center font-bold text-shadow-sm shadow-black/10 ${
+          dark ? 'text-zinc-50' : 'text-zinc-600'
+        }`}
+      >
+        {title}
       </h1>
       <Divider />
 
       {image ? (
-        <div className="md:flex  md:space-x-5 w-full py-5">
+        <div className="md:flex items-center md:space-x-5 w-full py-5">
           <div className="w-full h-full flex-1 overflow-hidden">
             <GatsbyImage
               alt="hero"
@@ -29,20 +38,33 @@ export default function Intro({
             />
           </div>
           <div className="py-5 md:w-1/2 h-full">
-            <h2 className="font-merriweather font-light text-2xl mb-5 text-zinc-600">
-              We are{' '}
+            <h2 className="font-merriweather font-bold text-lg mb-5 text-zinc-600">
               <span className="font-black text-shadow shadow-black/10 bg-clip-text text-transparent bg-gradient-to-r from-amber-600 via-pink-600 to-purple-600">
-                SimSimLovelies
+                {heading}
               </span>
             </h2>
-            <p className="font-montserrat text-zinc-500 mt-5">{description}</p>
+            <div
+              dangerouslySetInnerHTML={{ __html: description.html }}
+              className="font-montserrat text-zinc-500 my-5 prose"
+            />
+            <Link to="/about">
+              <button className="transition-all font-montserrat px-5 py-2 border-2 border-sky-800 rounded-md hover:shadow-xl shadow text-gray-100 bg-sky-800 text-sm font-normal hover:bg-sky-900 hover:border-sky-900">
+                Learn More
+              </button>
+            </Link>
           </div>
         </div>
       ) : (
-        <div>
-          <p className="text-center font-montserrat py-5 text-zinc-500">
-            {description}
-          </p>
+        <div className="  h-full">
+          <h2 className="font-merriweather font-bold text-lg mb-5 text-zinc-600">
+            <span className="font-black text-shadow shadow-black/10 bg-clip-text text-transparent bg-gradient-to-r from-amber-600 via-pink-600 to-purple-600">
+              {heading}
+            </span>
+          </h2>
+          <div
+            dangerouslySetInnerHTML={{ __html: description.html }}
+            className="font-montserrat text-zinc-500 my-5 prose"
+          />
         </div>
       )}
     </div>

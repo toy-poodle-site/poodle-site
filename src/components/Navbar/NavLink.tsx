@@ -22,7 +22,7 @@ export default function NavLink({
       ? `border-b-2 border-b-amber-400 text-amber-400`
       : 'border-b-transparent'
   } uppercase font-montserrat ${
-    small ? 'py-2 text-xs md:text-sm px-2' : 'h-16 px-3'
+    small ? 'py-2 text-xs md:text-sm' : 'h-16 px-3'
   } w-full flex-grow text-sm border-b-2 hover:border-b-amber-400 text-zinc-100 hover:text-amber-400 transition`;
 
   const mobileClass = `${

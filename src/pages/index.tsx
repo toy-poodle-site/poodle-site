@@ -45,12 +45,20 @@ export const pageQuery = graphql`
         }
         intro {
           blurb1_heading
-          blurb1_text
+          blurb1_text {
+            html
+          }
           blurb2_heading
           blurb3_heading
-          blurb3_text
-          blurb2_text
-          intro_body
+          blurb3_text {
+            html
+          }
+          blurb2_text {
+            html
+          }
+          intro_body {
+            html
+          }
           intro_heading
           intro_title
           blurb1_image {

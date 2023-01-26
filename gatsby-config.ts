@@ -31,7 +31,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-netlify-cms-paths`,
     {
-      resolve: 'gatsby-transformer-remark',
+      resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
           // `gatsby-plugin-netlify-cms-paths`,
@@ -56,9 +56,10 @@ module.exports = {
         ],
       },
     },
-    'gatsby-plugin-postcss',
-    'gatsby-plugin-netlify-cms',
-    'gatsby-plugin-smoothscroll',
+    `gatsby-transformer-remark-frontmatter`,
+    `gatsby-plugin-postcss`,
+    `gatsby-plugin-netlify-cms`,
+    `gatsby-plugin-smoothscroll`,
   ],
   jsxRuntime: 'automatic',
 };

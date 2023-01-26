@@ -62,7 +62,7 @@ collections:
                   widget: string,
                 }
               - { label: 'Blurb 1 image', name: blurb1_image, widget: image }
-              - { label: 'Blurb 1 text', name: blurb1_text, widget: text }
+              - { label: 'Blurb 1 text', name: blurb1_text, widget: markdown }
 
               # Blurb2
               - {
@@ -71,7 +71,7 @@ collections:
                   widget: string,
                 }
               - { label: 'Blurb 2 image', name: blurb2_image, widget: image }
-              - { label: 'Blurb 2 text', name: blurb2_text, widget: text }
+              - { label: 'Blurb 2 text', name: blurb2_text, widget: markdown }
 
               # Blurb3
               - {
@@ -80,7 +80,38 @@ collections:
                   widget: string,
                 }
               - { label: 'Blurb 3 image', name: blurb3_image, widget: image }
-              - { label: 'Blurb 3 text', name: blurb3_text, widget: text }
+              - { label: 'Blurb 3 text', name: blurb3_text, widget: markdown }
+
+          # Our Family section
+          - label: 'Our Family'
+            name: our_family
+            widget: object
+            fields:
+              - label: 'Our Family section title'
+                name: our_family_title
+                widget: string
+              - label: 'Our Family section subtitle'
+                name: our_family_subtitle
+                widget: string
+              - label: 'Our Family section - photos'
+                name: our_family_photos
+                widget: list
+                fields:
+                  - {
+                      label: 'Dog Name',
+                      name: our_family_dog_name,
+                      widget: string,
+                    }
+                  - {
+                      label: 'Dog Image',
+                      name: our_family_dog_image,
+                      widget: image,
+                    }
+                  - {
+                      label: 'About Dog',
+                      name: our_family_about_dog,
+                      widget: markdown,
+                    }
 
           - label: 'Gallery'
             name: 'gallery'

@@ -1,11 +1,9 @@
-import Intro from './Intro';
-import { useStaticQuery, graphql } from 'gatsby';
+import Intro from '../Intro';
 import { TGalleryPhoto } from '@/types';
 import GalleryPhoto from './GalleryPhoto';
-import { GatsbyImage, getImage } from 'gatsby-plugin-image';
+import { getImage } from 'gatsby-plugin-image';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { useState } from 'react';
 
 type GalleryProps = {
   title: string;
@@ -17,16 +15,6 @@ export default function Gallery({
   subtitle = '',
   photos = null,
 }: GalleryProps) {
-  const data = useStaticQuery(graphql`
-    query HeaderQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `);
-
   return (
     <section id="gallery" className="w-full bg-zinc-50 p-5">
       <Intro title={title} heading={subtitle} description={subtitle} />

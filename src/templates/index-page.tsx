@@ -1,12 +1,17 @@
 import { getImage } from 'gatsby-plugin-image';
-import Hero from '@/components/Hero';
+import Hero from '@/components/Landing/Hero';
 import Intro from '@/components/Intro';
-import Blurb from '@/components/Blurb';
+import Blurb from '@/components/Landing/Blurb';
 import { GiDogBowl, GiDogHouse, GiJumpingDog } from 'react-icons/gi';
-import BlurbsContainer from '@/components/BlurbsContainer';
-import Gallery from '@/components/Gallery';
-import PuppiesForSale from '@/components/PuppiesForSale';
+import BlurbsContainer from '@/components/Landing/BlurbsContainer';
+import Gallery from '@/components/Landing/Gallery';
+import PuppiesForSale from '@/components/Landing/PuppiesForSale';
 import { TIndexQueryResult } from '@/types';
+import OurFamily from '@/components/Landing/OurFamily';
+import Parallax from '@/components/Parallax';
+import ContactCTA from '@/components/Landing/ContactCTA';
+import FAQShort from '@/components/Landing/FAQShort';
+import Testimonials from '@/components/Landing/Testimonials';
 
 type IndexPageTemplateProps = {
   data: TIndexQueryResult;
@@ -14,6 +19,7 @@ type IndexPageTemplateProps = {
 
 export default function IndexPageTemplate({ data }: IndexPageTemplateProps) {
   const { intro, gallery, hero } = data.markdownRemark.frontmatter;
+  console.log(intro);
 
   return (
     <div className="h-full w-full">
@@ -64,7 +70,7 @@ export default function IndexPageTemplate({ data }: IndexPageTemplateProps) {
             </mask>
           </defs>
         </svg>
-        <div className="relative">
+        <div className="relative bg-black/">
           <Intro
             image={getImage(intro.intro_image)}
             heading={intro.intro_heading}
@@ -95,6 +101,16 @@ export default function IndexPageTemplate({ data }: IndexPageTemplateProps) {
             />
           </BlurbsContainer>
           <PuppiesForSale />
+          <OurFamily />
+          <Testimonials />
+          <FAQShort />
+          <Parallax
+            className="h-screen"
+            innerClassName="bg-black/50"
+            image="https://wallpapercave.com/wp/wp7310478.jpg"
+          >
+            <ContactCTA />
+          </Parallax>
           <Gallery
             title={gallery.gallery_title}
             subtitle={gallery.gallery_subtitle}

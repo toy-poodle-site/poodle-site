@@ -5,7 +5,9 @@ type BlurbProps = {
   format?: string;
   Icon: any;
   image: any;
-  text: string;
+  text: {
+    html: string;
+  };
 };
 
 export default function Blurb({
@@ -25,9 +27,10 @@ export default function Blurb({
       <h2 className="text-lg md:text-xl font-semibold font-montserrat text-zinc-700">
         {heading}
       </h2>
-      <p className="text-justify text-sm font-montserrat text-zinc-700">
-        {text}
-      </p>
+      <div
+        dangerouslySetInnerHTML={{ __html: text.html }}
+        className="text-justify text-sm font-montserrat text-zinc-700 markdown"
+      ></div>
     </div>
   );
 }

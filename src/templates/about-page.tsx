@@ -1,5 +1,5 @@
-import Blurb from '@/components/Blurb';
-import BlurbsContainer from '@/components/BlurbsContainer';
+import Blurb from '@/components/Landing/Blurb';
+import BlurbsContainer from '@/components/Landing/BlurbsContainer';
 import { GiDogBowl, GiDogHouse, GiJumpingDog } from 'react-icons/gi';
 
 export default function AboutPageTemplate() {

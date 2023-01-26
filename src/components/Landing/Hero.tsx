@@ -2,7 +2,7 @@ import { Link } from 'gatsby';
 import { BiChevronsDown } from 'react-icons/bi';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import scrollTo from 'gatsby-plugin-smoothscroll';
-import Divider from './Divider';
+import Divider from '../Divider';
 
 type HeroProps = {
   title: string;
@@ -48,7 +48,7 @@ export default function Hero({
             </h2>
             {/* <hr className="w-16 h-[2px] rounded  bg-amber-400 border-0" /> */}
             <Divider />
-            <h3 className="text-sm text-shadow shadow-black/25 font-montserrat md:text-lg text-gray-200">
+            <h3 className="text-sm text-shadow shadow-black/25 font-montserrat md:text-lg text-gray-200 prose prose-xl">
               {description}
             </h3>
             <div className="flex space-x-3">

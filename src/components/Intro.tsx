@@ -1,6 +1,7 @@
 import { Link } from 'gatsby';
 import { GatsbyImage } from 'gatsby-plugin-image';
 import Divider from './Divider';
+import MarkdownContent from './MarkdownContent';
 
 type IntroProps = {
   heading: string;
@@ -31,9 +32,9 @@ export default function Intro({
       {image ? (
         <div className="md:flex items-center md:space-x-5 w-full py-5">
           <div className="w-full h-full flex-1 overflow-hidden">
-            <GatsbyImage
+            <img
               alt="hero"
-              image={image}
+              src={image}
               className="h-full shadow hover:scale-110 transition-all duration-1000"
             />
           </div>
@@ -43,8 +44,8 @@ export default function Intro({
                 {heading}
               </span>
             </h2>
-            <div
-              dangerouslySetInnerHTML={{ __html: description.html }}
+            <MarkdownContent
+              content={description}
               className="font-montserrat text-zinc-500 my-5 prose"
             />
             <Link to="/about">
@@ -61,10 +62,6 @@ export default function Intro({
               {heading}
             </span>
           </h2>
-          <div
-            dangerouslySetInnerHTML={{ __html: description.html }}
-            className="font-montserrat text-zinc-500 my-5 prose"
-          />
         </div>
       )}
     </div>

@@ -1,6 +1,6 @@
 import { Link } from 'gatsby';
 import { BiChevronsDown } from 'react-icons/bi';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage, StaticImage } from 'gatsby-plugin-image';
 import scrollTo from 'gatsby-plugin-smoothscroll';
 import Divider from '../Divider';
 
@@ -33,7 +33,9 @@ export default function Hero({
         onClick={() => scrollTo('#intro')}
         className="hidden md:block text-5xl text-amber-100 absolute mx-auto inset-x-0 bottom-5 z-10 cursor-pointer animate-fade-in-down "
       />
-      <GatsbyImage image={image} alt="Hero Image" className="h-screen" />
+      {/* <GatsbyImage image={image} alt="Hero Image" className="h-screen" /> */}
+      <img src={image} alt={tagline} className="h-screen w-full object-cover" />
+      {/* <img src={image} alt="test img" className="h-screen w-auto" /> */}
       <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
         <div className="max-w-screen-xl w-full flex justify-end">
           <div className="rounded bg-black/30 md:bg-black/0 p-5 w-full md:w-1/2 h-full flex flex-col justify-center space-y-5">

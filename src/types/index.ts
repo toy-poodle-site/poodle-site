@@ -3,9 +3,7 @@ export interface TOurFamily {
   our_family_subtitle: string;
   our_family_photos: [
     {
-      our_family_about_dog: {
-        html: any;
-      };
+      our_family_about_dog: string;
       our_family_dog_image: any;
       our_family_dog_name: string;
     },
@@ -25,17 +23,11 @@ export interface TGallery {
 
 export interface TIntro {
   blurb1_heading: string;
-  blurb1_text: {
-    html: any;
-  };
+  blurb1_text: string;
   blurb2_heading: string;
   blurb3_heading: string;
-  blurb3_text: {
-    html: any;
-  };
-  blurb2_text: {
-    html: any;
-  };
+  blurb3_text: string;
+  blurb2_text: string;
   intro_body: string;
   intro_heading: string;
   intro_title: string;

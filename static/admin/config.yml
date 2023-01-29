@@ -15,7 +15,7 @@ collections:
     files:
       - label: 'Landing'
         name: 'landing'
-        file: 'content/pages/index.md'
+        file: 'src/content/pages/index.md'
         fields:
           - {
               label: 'Template Key (Do not edit)',

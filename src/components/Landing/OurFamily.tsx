@@ -1,8 +1,8 @@
 import Intro from '../Intro';
 import { useStaticQuery, graphql } from 'gatsby';
 import { TOurFamily } from '@/types';
-import { getImage } from 'gatsby-plugin-image';
 import OurFamilyPhoto from './OurFamilyPhoto';
+import { getImage } from 'gatsby-plugin-image';
 
 export default function OurFamily() {
   const data = useStaticQuery(graphql`
@@ -13,14 +13,8 @@ export default function OurFamily() {
             frontmatter {
               our_family {
                 our_family_photos {
-                  our_family_about_dog {
-                    html
-                  }
-                  our_family_dog_image {
-                    childImageSharp {
-                      gatsbyImageData
-                    }
-                  }
+                  our_family_about_dog
+                  our_family_dog_image
                   our_family_dog_name
                 }
                 our_family_subtitle
@@ -51,7 +45,7 @@ export default function OurFamily() {
         {ourFamily.our_family_photos.map((photo) => (
           <OurFamilyPhoto
             key={photo.our_family_dog_name}
-            image={getImage(photo.our_family_dog_image)}
+            image={photo.our_family_dog_image}
             name={photo.our_family_dog_name}
             text={photo.our_family_about_dog}
           />

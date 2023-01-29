@@ -1,4 +1,3 @@
-import { getImage } from 'gatsby-plugin-image';
 import Hero from '@/components/Landing/Hero';
 import Intro from '@/components/Intro';
 import Blurb from '@/components/Landing/Blurb';
@@ -12,6 +11,7 @@ import Parallax from '@/components/Parallax';
 import ContactCTA from '@/components/Landing/ContactCTA';
 import FAQShort from '@/components/Landing/FAQShort';
 import Testimonials from '@/components/Landing/Testimonials';
+import { getImage } from 'gatsby-plugin-image';
 
 type IndexPageTemplateProps = {
   data: TIndexQueryResult;
@@ -19,7 +19,7 @@ type IndexPageTemplateProps = {
 
 export default function IndexPageTemplate({ data }: IndexPageTemplateProps) {
   const { intro, gallery, hero } = data.markdownRemark.frontmatter;
-  console.log(intro);
+  console.log(data.markdownRemark.frontmatter.hero.coverImage);
 
   return (
     <div className="h-full w-full">
@@ -28,7 +28,7 @@ export default function IndexPageTemplate({ data }: IndexPageTemplateProps) {
         subtitle={hero.subtitle}
         tagline={hero.tagline}
         description={hero.description}
-        image={getImage(hero.coverImage)}
+        image={hero.coverImage}
         ctaLink="/"
         ctaText="See Our Puppies"
         ctaAltLink={hero.cta.cta_link}
@@ -72,7 +72,7 @@ export default function IndexPageTemplate({ data }: IndexPageTemplateProps) {
         </svg>
         <div className="relative bg-black/">
           <Intro
-            image={getImage(intro.intro_image)}
+            image={intro.intro_image}
             heading={intro.intro_heading}
             title={intro.intro_title}
             description={intro.intro_body}
@@ -81,21 +81,21 @@ export default function IndexPageTemplate({ data }: IndexPageTemplateProps) {
             <Blurb
               heading={intro.blurb1_heading}
               Icon={GiDogHouse}
-              image={getImage(intro.blurb1_image)}
+              image={intro.blurb1_image}
               format="normal"
               text={intro.blurb1_text}
             />
             <Blurb
               heading={intro.blurb2_heading}
               Icon={GiDogBowl}
-              image={getImage(intro.blurb2_image)}
+              image={intro.blurb2_image}
               format="normal"
               text={intro.blurb2_text}
             />
             <Blurb
               heading={intro.blurb3_heading}
               Icon={GiJumpingDog}
-              image={getImage(intro.blurb3_image)}
+              image={intro.blurb3_image}
               format="normal"
               text={intro.blurb3_text}
             />
@@ -104,11 +104,7 @@ export default function IndexPageTemplate({ data }: IndexPageTemplateProps) {
           <OurFamily />
           <Testimonials />
           <FAQShort />
-          <Parallax
-            className="h-screen"
-            innerClassName="bg-black/50"
-            image="https://wallpapercave.com/wp/wp7310478.jpg"
-          >
+          <Parallax image="https://wallpapercave.com/wp/wp7310478.jpg">
             <ContactCTA />
           </Parallax>
           <Gallery

@@ -1,9 +1,9 @@
 import Intro from '../Intro';
 import { TGalleryPhoto } from '@/types';
 import GalleryPhoto from './GalleryPhoto';
-import { getImage } from 'gatsby-plugin-image';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { getImage } from 'gatsby-plugin-image';
 
 type GalleryProps = {
   title: string;
@@ -33,7 +33,7 @@ export default function Gallery({
             {photos.map((photo, i) => (
               <GalleryPhoto
                 key={`${photo.gallery_image_alt_text}-${i}`}
-                galleryImage={getImage(photo.gallery_image)}
+                galleryImage={photo.gallery_image}
                 galleryImageAltText={photo.gallery_image_alt_text}
               />
             ))}

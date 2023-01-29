@@ -12,8 +12,8 @@ export default function GalleryPhoto({
 }: GalleryPhotoType) {
   return (
     <div className="group relative">
-      <GatsbyImage
-        image={galleryImage}
+      <img
+        src={galleryImage}
         alt={galleryImageAltText}
         className="h-[60vh] xl:h-[50vh] w-full object-cover group-hover:contrast-50 transition-all duration-300"
       />

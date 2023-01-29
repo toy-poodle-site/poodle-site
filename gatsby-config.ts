@@ -33,20 +33,20 @@ module.exports = {
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          {
-            resolve: `gatsby-remark-relative-images`,
-            options: {
-              name: 'img',
-            },
-          },
-          {
-            resolve: `gatsby-remark-images`,
-            options: {},
-          },
-        ],
-      },
+      // options: {
+      //   plugins: [
+      //     {
+      //       resolve: `gatsby-remark-relative-images`,
+      //       options: {
+      //         name: 'img',
+      //       },
+      //     },
+      //     {
+      //       resolve: `gatsby-remark-images`,
+      //       options: {},
+      //     },
+      //   ],
+      // },
     },
 
     `gatsby-plugin-postcss`,

@@ -36,6 +36,7 @@ export default function IndexPageTemplate({ data }: IndexPageTemplateProps) {
       />
       {/* Intro Section */}
       <section className="relative pt-5" id="intro">
+        {/* background pattern */}
         <svg
           className="inset-0 absolute w-full -z-10"
           xmlns="http://www.w3.org/2000/svg"

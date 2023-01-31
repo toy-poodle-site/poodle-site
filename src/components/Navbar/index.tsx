@@ -58,6 +58,7 @@ export default function Navbar({ location }: any) {
       {/* Force margin */}
       {/* <div className="h-16" /> */}
       <div
+        id="top"
         className={`transition-all duration-300 ${
           show ? 'translate-y-0 ' : '-translate-y-full'
         } fixed top-0 h-16 inset-x-0 z-40 bg-zinc-900/50 shadow-sm backdrop-blur-sm`}
@@ -67,7 +68,7 @@ export default function Navbar({ location }: any) {
             to="/"
             className="hover:contrast-125 cursor-pointer transition-all"
           >
-            <h1 className=" flex items-center font-black font-merriweather text-lg text-zinc-200 text-shadow-lg">
+            <h1 className="flex items-center font-thin font-playfair  text-amber-400 text-shadow-lg">
               <Logo className="h-8 w-8 mr-3" color="amber" />
               Sim Sim Lovelies
             </h1>
@@ -157,8 +158,8 @@ export default function Navbar({ location }: any) {
 
       <div
         className={`transition-all duration-300 ${
-          isMenuOpen ? 'z-40 backdrop-blur-sm' : 'backdrop-blur-none'
-        } md:hidden fixed inset-0`}
+          isMenuOpen ? 'z-40 backdrop-blur-sm' : 'backdrop-blur-none hidden'
+        } fixed inset-0`}
       />
     </>
   );

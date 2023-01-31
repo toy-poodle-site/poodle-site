@@ -18,9 +18,9 @@ export default function AboutPageTemplate({ data }: AboutPageTemplateProps) {
   return (
     <>
       <Banner
-        heading="About us"
-        image="https://images.unsplash.com/photo-1534361960057-19889db9621e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
-        description="Welcome to Sim Sim Lovelies! We are dedicated to breeding healthy and happy Toy Poodles with excellent temperaments. Our goal is to produce high-quality puppies that are not only beautiful, but also well-suited for families and individuals as loving companions."
+        heading={aboutBanner.heading}
+        image={aboutBanner.image}
+        description={aboutBanner.subtitle}
       />
       <div className="py-40">
         <section className="relative">
@@ -110,7 +110,7 @@ export default function AboutPageTemplate({ data }: AboutPageTemplateProps) {
       </div>
 
       {contactParallax.show && (
-        <Parallax image="https://images.unsplash.com/photo-1528362426376-962bcf4f76c7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1596&q=80">
+        <Parallax image={contactParallax.image}>
           <ContactCTA />
         </Parallax>
       )}

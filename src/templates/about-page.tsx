@@ -1,40 +1,20 @@
 import Article from '@/components/About/Article';
 import Banner from '@/components/Banner';
-import Blurb from '@/components/Landing/Blurb';
-import BlurbsContainer from '@/components/Landing/BlurbsContainer';
 import ContactCTA from '@/components/Landing/ContactCTA';
 import Parallax from '@/components/Parallax';
-import { GiDogBowl, GiDogHouse, GiJumpingDog } from 'react-icons/gi';
+import { TAboutPageQueryResult } from '@/types';
 
 type AboutPageTemplateProps = {
-  data: any;
+  data: TAboutPageQueryResult;
 };
 
-const articles = [
-  {
-    title: 'Our History',
-    content:
-      'We have been breeding Toy Poodles for many years and have a deep understanding of the breed. Our breeding stock is carefully selected and health tested to ensure that we are producing the healthiest puppies possible. We also take great care in socializing our puppies from a young age to ensure that they are well-adjusted and confident.',
-    image:
-      'https://images.unsplash.com/photo-1549297161-14f79605a74c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8dG95JTIwcG9vZGxlfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
-  },
-  {
-    title: 'Our Specialities',
-    content:
-      'Our Toy Poodles come in a variety of colors including white, apricot, black, and silver. They are hypoallergenic and non-shedding, making them a great choice for people with allergies. They are also small in size, typically weighing between 4 and 6 pounds, making them the perfect size for apartment living or for those who want a small companion.',
-    image:
-      'https://images.unsplash.com/photo-1534361960057-19889db9621e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80',
-  },
-  {
-    title: 'Thank You',
-    content:
-      'We are always happy to answer any questions you may have about the breed and our process. Feel free get in touch with us if you would like to learn more. Thank you for considering a Toy Poodle from our breeding program.',
-    image:
-      'https://images.unsplash.com/photo-1587628258686-aec7f3d2ad6c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTd8fHRveSUyMHBvb2RsZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-  },
-];
-
 export default function AboutPageTemplate({ data }: AboutPageTemplateProps) {
+  const {
+    about_banner: aboutBanner,
+    contact_parallax: contactParallax,
+    articles,
+  } = data.markdownRemark.frontmatter;
+
   return (
     <>
       <Banner
@@ -115,10 +95,10 @@ export default function AboutPageTemplate({ data }: AboutPageTemplateProps) {
             </defs>
           </svg>
           <main className="relative max-w-screen-xl mx-auto flex flex-col border">
-            {articles.map((article, index) => (
+            {articles.map(({ article }, index) => (
               <Article
-                key={`${article.title}-${index}`}
-                title={article.title}
+                key={`${article.heading}-${index}`}
+                title={article.heading}
                 image={article.image}
                 content={article.content}
                 index={index}
@@ -128,9 +108,12 @@ export default function AboutPageTemplate({ data }: AboutPageTemplateProps) {
           </main>
         </section>
       </div>
-      <Parallax image="https://images.unsplash.com/photo-1528362426376-962bcf4f76c7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1596&q=80">
-        <ContactCTA />
-      </Parallax>
+
+      {contactParallax.show && (
+        <Parallax image="https://images.unsplash.com/photo-1528362426376-962bcf4f76c7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1596&q=80">
+          <ContactCTA />
+        </Parallax>
+      )}
     </>
   );
 }

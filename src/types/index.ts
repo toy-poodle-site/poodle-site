@@ -62,3 +62,33 @@ export interface TMarkdownRemark {
 export interface TIndexQueryResult {
   markdownRemark: TMarkdownRemark;
 }
+
+// About page
+
+export interface TBanner {
+  heading: string;
+  image: string;
+  subtitle: string;
+}
+
+export interface TArticle {
+  article: {
+    heading: string;
+    content: string;
+    image: string;
+  };
+}
+export interface TAboutPageFrontmatter {
+  about_banner: TBanner;
+  articles: [TArticle];
+  contact_parallax: {
+    show: boolean;
+    image: string;
+  };
+}
+
+export interface TAboutPageQueryResult {
+  markdownRemark: {
+    frontmatter: TAboutPageFrontmatter;
+  };
+}

@@ -15,7 +15,7 @@ collections:
     files:
       - label: 'Landing'
         name: 'landing'
-        file: 'src/content/pages/index.md'
+        file: 'content/pages/landing.md'
         fields:
           - {
               label: 'Template Key (Do not edit)',
@@ -137,6 +137,46 @@ collections:
                       name: 'gallery_image_alt_text',
                       widget: string,
                     }
+      - label: About
+        name: about
+        file: 'content/pages/about.md'
+        fields:
+          - label: 'Template Key (Do not edit. Must be "about_page")'
+            name: template_key
+            widget: string
+            default: about_page
+            required: true
+            hint: 'LEAVE BLANK'
+
+          - label: Banner
+            name: about_banner
+            widget: object
+            fields:
+              - { label: Heading, name: heading, widget: string }
+              - { label: Subtitle, name: subtitle, widget: markdown }
+              - { label: 'Banner Image', name: image, widget: image }
+          - label: 'Articles - At least 3 articles looks best'
+            name: 'articles'
+            widget: list
+            fields:
+              - label: Article
+                name: article
+                widget: object
+                fields:
+                  - { label: Heading, name: heading, widget: string }
+                  - { label: Content, name: content, widget: markdown }
+                  - { label: Image, name: image, widget: image }
+          - label: 'Contact parallax'
+            name: contact_parallax
+            widget: object
+            fields:
+              - { label: Image, name: image, widget: image }
+              - {
+                  label: 'Show Parallax',
+                  name: show,
+                  widget: boolean,
+                  default: true,
+                }
 
   # Site Settings
   - label: 'Site Settings'

@@ -25,7 +25,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/content`,
+        path: `${__dirname}/content`,
         name: 'content',
       },
     },
@@ -35,6 +35,7 @@ module.exports = {
       resolve: `gatsby-transformer-remark`,
       // options: {
       //   plugins: [
+      //         `gatsby-plugin-netlify-cms-paths`,
       //     {
       //       resolve: `gatsby-remark-relative-images`,
       //       options: {
@@ -55,54 +56,5 @@ module.exports = {
     `gatsby-plugin-image`,
   ],
 
-  // plugins: [
-  //   `gatsby-plugin-sharp`,
-  //   `gatsby-transformer-sharp`,
-  //   {
-  //     resolve: `gatsby-transformer-remark`,
-  //     options: {
-  //       plugins: [
-  //         `gatsby-plugin-netlify-cms-paths`,
-  //         {
-  //           resolve: `gatsby-remark-relative-images`,
-  //           // options: {
-  //           //   // [Optional] The root of "media_folder" in your config.yml
-  //           //   // Defaults to "static"
-  //           //   staticFolderName: 'static',
-  //           //   // [Optional] Include the following fields, use dot notation for nested fields
-  //           //   // All fields are included by default
-  //           //   include: ['featured'],
-  //           //   // [Optional] Exclude the following fields, use dot notation for nested fields
-  //           //   // No fields are excluded by default
-  //           //   exclude: ['featured.skip'],
-  //           // },
-  //         },
-  //         {
-  //           resolve: `gatsby-remark-images`,
-  //           options: { maxWidth: 1024 },
-  //         },
-  //       ],
-  //     },
-  //   },
-  //   `gatsby-plugin-image`,
-  //   {
-  //     resolve: 'gatsby-source-filesystem',
-  //     options: {
-  //       path: path.join(__dirname, 'static', 'img'),
-  //       name: 'static',
-  //     },
-  //   },
-  //   {
-  //     resolve: 'gatsby-source-filesystem',
-  //     options: {
-  //       name: 'content',
-  //       path: path.join(__dirname, 'content'),
-  //     },
-  //   },
-  //   `gatsby-plugin-netlify-cms-paths`,
-  //   `gatsby-plugin-postcss`,
-  //   `gatsby-plugin-netlify-cms`,
-  //   `gatsby-plugin-smoothscroll`,
-  // ],
   jsxRuntime: 'automatic',
 };

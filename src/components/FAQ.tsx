@@ -29,8 +29,8 @@ export default function FAQ({ question, answer, index }: FAQProps) {
         </h3>
       </div>
       <p
-        className={`font-montserrat text-sm mt-3 pl-9 ${
-          !isOpen && 'absolute -z-10'
+        className={`font-montserrat transition-all duration-500 ease-in-out overflow-hidden text-sm pl-9 ${
+          !isOpen ? 'h-0 pt-0' : 'h-24 pt-5'
         }`}
       >
         {answer}

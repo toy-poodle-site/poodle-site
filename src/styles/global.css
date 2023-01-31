@@ -6,7 +6,7 @@
 
 @layer components {
   .markdown {
-    @apply prose prose-a:text-amber-900 hover:prose-a:text-amber-700;
+    @apply prose prose-a:text-amber-900 hover:prose-a:text-amber-700 font-montserrat;
   }
 
   .btn-learn-more {
